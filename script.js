@@ -211,15 +211,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     confirmSendBtn.addEventListener("click", async () => {
-        mesajFinal += "\nAdresă: " + inputAdresa.value;
-        mesajFinal += "\nTelefon: " + inputTelefon.value;
 
-        // Salvează comanda în Google Sheet
-        postComanda(clientIDInput.value, dataInput.value, oraSelect.value);
-		
-		 // 2️⃣ Deschide WhatsApp imediat, direct după click
-        finalizeaza();
-    });
+  mesajFinal += "\nAdresă: " + inputAdresa.value;
+  mesajFinal += "\nTelefon: " + inputTelefon.value;
+
+  const raspuns = await postComanda(
+    clientIDInput.value,
+    dataInput.value,
+    oraSelect.value
+  );
+
+  if (raspuns.status === "error") {
+    alert(raspuns.message);
+    return;
+  }
+
+  // 🔄 reset select + reload ore
+  oraSelect.value = "";
+  await genereazaOre();
+
+  finalizeaza();
+});
 
     /* ================= POST COMANDA ================= */
     async function postComanda(clientID, dataComanda, oraComanda) {
