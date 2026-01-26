@@ -95,27 +95,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= ORE ================= */
     async function genereazaOre() {
-        oraSelect.innerHTML = '<option value="">-- Selectează ora --</option>';
-        if (!dataInput.value) return;
+  oraSelect.innerHTML = '<option value="">-- Selectează ora --</option>';
+  if (!dataInput.value) return;
 
-        const azi = new Date();
-        const dataAleasa = new Date(dataInput.value);
-        const esteAzi = dataAleasa.toDateString() === azi.toDateString();
-        const oraCurenta = azi.getHours();
-        const esteMaine = !esteAzi;
+  const acum = new Date();
+  const oraCurenta = acum.getHours();
+  const aziStr = acum.toISOString().split("T")[0];
 
-        const oreOcupate = await fetchOcupate();
+  const oreOcupate = await fetchOcupate();
 
-        for (let ora = 12; ora <= 18; ora++) {
-            if (esteAzi && ora <= oraCurenta) continue;
-            if (oreOcupate.includes(`${ora}:00`)) continue;
+  for (let ora = 12; ora <= 18; ora++) {
 
-            const opt = document.createElement("option");
-            opt.value = `${ora}:00`;
-            opt.textContent = esteMaine ? `${ora}:00 (Mâine)` : `${ora}:00`;
-            oraSelect.appendChild(opt);
-        }
-    }
+    // ❌ nu afișăm ore din trecut
+    if (dataInput.value === aziStr && ora <= oraCurenta) continue;
+
+    // ❌ nu afișăm ore ocupate
+    if (oreOcupate.includes(`${ora}:00`)) continue;
+
+    const opt = document.createElement("option");
+    opt.value = `${ora}:00`;
+    opt.textContent =
+      dataInput.value === aziStr ? `${ora}:00` : `${ora}:00 (Mâine)`;
+
+    oraSelect.appendChild(opt);
+  }
+}
 
     dataInput.addEventListener("change", genereazaOre);
 
