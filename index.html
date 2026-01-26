@@ -232,6 +232,12 @@
     </div>
 	 <!-- DETALII LIVRARE -->
 
+
+<!-- DATA LIVRARE / RIDICARE -->
+<div class="date-options" id="dateOptions" style="display:none;">
+    <strong>Alege data:</strong>
+    <input type="date" id="dataLivrare">
+</div>
     <!-- ORA -->
     <div class="time-options" id="timeOptions" style="display:none;">
         <strong>Alege ora:</strong>
@@ -246,14 +252,28 @@
     <div class="comment-section">
         <label><strong>Comentariu:</strong></label><br>
         <textarea id="comentariu" rows="3"></textarea>
+			<input type="hidden" id="clientID">
     </div>
  <!-- COMENTARIU -->
  
  
  
     <!-- BUTON -->
+	<input type="hidden" id="clientID">
+<!-- <label>Data livrare:</label> -->
+<!-- <input type="date" id="dataLivrare"> -->
+<!-- <label>Alege ora:</label> -->
+<!-- <select id="ora"></select> -->
     <button id="sendOrder">Trimite comanda</button>
 
+<div id="confirmBox" style="display:none; margin-top:20px; padding:15px; border-radius:10px; background:#f5f5f5; border:1px solid #ccc;">
+    <h3>Confirmă datele de livrare</h3>
+    <p><strong>Adresă:</strong> <span id="confirmAdresa"></span></p>
+    <p><strong>Telefon:</strong> <span id="confirmTelefon"></span></p>
+
+    <button id="editData" style="margin-right:10px;">Editează</button>
+    <button id="confirmSend">Confirmă și trimite</button>
+</div>
 </div>
 
 <div id="confirmModal" class="modal" style="display:none;">

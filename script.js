@@ -18,53 +18,112 @@ document.addEventListener("DOMContentLoaded", () => {
     const radios = document.querySelectorAll('input[name="delivery"]');
     const timeOptions = document.getElementById("timeOptions");
     const oraSelect = document.getElementById("ora");
+
+    const dateOptions = document.getElementById("dateOptions");
+    const dataInput = document.getElementById("dataLivrare");
+
     const deliveryDetails = document.querySelector(".delivery-details");
-    const pickupInfo = document.getElementById("pickupInfo");
     const inputAdresa = document.getElementById("adresa");
     const inputTelefon = document.getElementById("telefon");
+
     const sendBtn = document.getElementById("sendOrder");
+    const comentariu = document.getElementById("comentariu");
 
-    /* ================= STIL MESAJ RIDICARE ================= */
-    pickupInfo.style.display = "none";
-    pickupInfo.style.marginTop = "12px";
-    pickupInfo.style.padding = "12px";
-    pickupInfo.style.borderRadius = "10px";
-    pickupInfo.style.background = "#f1f1f1";
-    pickupInfo.style.color = "#000";
-    pickupInfo.style.fontSize = "14px";
-    pickupInfo.style.borderLeft = "5px solid #000";
-    pickupInfo.innerHTML = "📍 <strong>Ridicare din locație</strong><br>Adresa locației va fi inclusă automat în mesajul de comandă după trimitere.";
+    const confirmBox = document.getElementById("confirmBox");
+    const confirmAdresa = document.getElementById("confirmAdresa");
+    const confirmTelefon = document.getElementById("confirmTelefon");
+    const editDataBtn = document.getElementById("editData");
+    const confirmSendBtn = document.getElementById("confirmSend");
 
-    /* ================= GENEREAZĂ ORE ================= */
-    genereazaOre();
+    const pickupInfo = document.getElementById("pickupInfo");
 
-    function genereazaOre() {
-        oraSelect.innerHTML = '<option value="">-- Selectează ora --</option>';
-        const now = new Date();
-        const oraCurenta = now.getHours();
+    const clientIDInput = document.getElementById("clientID");
+    let mesajFinal = "";
+
+    /* ================= CANTITATE ================= */
+    document.querySelectorAll('.product-check').forEach(check => {
+        check.addEventListener('change', function () {
+            const qtyBox = this.closest('.item').querySelector('.qty-box');
+            const qtyInput = qtyBox.querySelector('.qty-input');
+
+            if (this.checked) {
+                qtyBox.style.display = 'block';
+                qtyInput.value = 1;
+            } else {
+                qtyBox.style.display = 'none';
+                qtyInput.value = 1;
+            }
+        });
+    });
+
+    /* ================= DATA INITIALĂ ================= */
+    initData();
+
+    function initData() {
+        const azi = new Date();
+        const oraCurenta = azi.getHours();
 
         if (oraCurenta >= 18) {
-            for (let ora = 12; ora <= 18; ora++) {
-                const opt = document.createElement("option");
-                opt.value = `${ora}:00`;
-                opt.textContent = `${ora}:00 (Mâine)`;
-                oraSelect.appendChild(opt);
-            }
-        } else {
-            for (let ora = 12; ora <= 18; ora++) {
-                if (ora <= oraCurenta) continue;
-                const opt = document.createElement("option");
-                opt.value = `${ora}:00`;
-                opt.textContent = `${ora}:00`;
-                oraSelect.appendChild(opt);
-            }
+            azi.setDate(azi.getDate() + 1);
+        }
+
+        const yyyy = azi.getFullYear();
+        const mm = String(azi.getMonth() + 1).padStart(2, '0');
+        const dd = String(azi.getDate()).padStart(2, '0');
+
+        const dataMin = `${yyyy}-${mm}-${dd}`;
+        dataInput.min = dataMin;
+        dataInput.value = dataMin;
+
+        genereazaOre();
+    }
+
+    /* ================= GOOGLE SHEET ================= */
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxalaTzHy2Oksvc30wn-g9oOPI5W8vxshHDrxVHCUf97A6q_rONSCsdjXjRfAcnWcZh/exec"; // pune URL-ul Apps Script aici
+
+    async function fetchOcupate() {
+        try {
+            const res = await fetch(GOOGLE_SCRIPT_URL);
+            const data = await res.json();
+            const dataAleasa = dataInput.value;
+            return data.filter(o => o.data === dataAleasa).map(o => o.ora);
+        } catch (err) {
+            console.error("Nu am putut prelua orele ocupate", err);
+            return [];
         }
     }
+
+    /* ================= ORE ================= */
+    async function genereazaOre() {
+        oraSelect.innerHTML = '<option value="">-- Selectează ora --</option>';
+        if (!dataInput.value) return;
+
+        const azi = new Date();
+        const dataAleasa = new Date(dataInput.value);
+        const esteAzi = dataAleasa.toDateString() === azi.toDateString();
+        const oraCurenta = azi.getHours();
+        const esteMaine = !esteAzi;
+
+        const oreOcupate = await fetchOcupate();
+
+        for (let ora = 12; ora <= 18; ora++) {
+            if (esteAzi && ora <= oraCurenta) continue;
+            if (oreOcupate.includes(`${ora}:00`)) continue;
+
+            const opt = document.createElement("option");
+            opt.value = `${ora}:00`;
+            opt.textContent = esteMaine ? `${ora}:00 (Mâine)` : `${ora}:00`;
+            oraSelect.appendChild(opt);
+        }
+    }
+
+    dataInput.addEventListener("change", genereazaOre);
 
     /* ================= LIVRARE / RIDICARE ================= */
     radios.forEach(radio => {
         radio.addEventListener("change", () => {
             timeOptions.style.display = "block";
+            dateOptions.style.display = "block";
 
             if (radio.value === "Livrare") {
                 deliveryDetails.style.display = "block";
@@ -78,55 +137,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* ================= CANTITATE PRODUSE ================= */
-    document.querySelectorAll('.product-check').forEach(check => {
-        check.addEventListener("change", function () {
-            const qtyBox = this.closest(".item").querySelector(".qty-box");
-            const qtyInput = qtyBox.querySelector(".qty-input");
+    /* ================= TRIMITERE ================= */
+    sendBtn.addEventListener("click", async () => {
 
-            if (this.checked) {
-                qtyBox.style.display = "block";
-                qtyInput.value = 1;
-            } else {
-                qtyBox.style.display = "none";
-                qtyInput.value = 1;
-            }
-        });
-    });
-
-    /* ================= TRIMITERE COMANDĂ ================= */
-    sendBtn.addEventListener("click", () => {
-
-        const produse = document.querySelectorAll('.product-check:checked');
+        const produse = document.querySelectorAll('.item input[type="checkbox"]:checked');
         const livrare = document.querySelector('input[name="delivery"]:checked');
         const ora = oraSelect.value;
-        const comentariu = document.getElementById("comentariu").value;
+        const dataFinala = dataInput.value;
 
-        if (produse.length === 0) {
+        if (!produse.length) {
             alert("Selectează cel puțin un produs!");
             return;
         }
-
         if (!livrare) {
             alert("Alege Livrare sau Ridicare!");
             return;
         }
-
+        if (!dataFinala) {
+            alert("Alege data!");
+            return;
+        }
         if (!ora) {
             alert("Alege ora!");
             return;
         }
 
-        let mesaj = "Comanda:\n";
+        // Generează ClientID
+        const clientID = clientIDInput.value || `client_${Date.now()}`;
+        clientIDInput.value = clientID;
+
+        mesajFinal = `ClientID: ${clientID}\nComandă:\n`;
+
         produse.forEach(p => {
             const item = p.closest(".item");
             const nume = item.querySelector("h3").innerText;
-            const qty = item.querySelector(".qty-input")?.value || 1;
-            mesaj += `- ${nume} x ${qty}\n`;
+
+            const qtyInput = item.querySelector('.qty-input');
+            const qty = qtyInput ? qtyInput.value : 1;
+
+            mesajFinal += `- ${nume} x${qty}\n`;
         });
 
-        mesaj += `\nMetodă: ${livrare.value}`;
-        mesaj += `\nOra: ${ora}`;
+        mesajFinal += `\nData: ${dataFinala}`;
+        mesajFinal += `\nOra: ${ora}`;
+        mesajFinal += `\nMetodă: ${livrare.value}`;
 
         if (livrare.value === "Livrare") {
             if (!inputAdresa.value.trim() || !inputTelefon.value.trim()) {
@@ -134,20 +188,65 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            mesaj += `\nAdresă: ${inputAdresa.value}`;
-            mesaj += `\nTelefon: ${inputTelefon.value}`;
+            confirmAdresa.textContent = inputAdresa.value;
+            confirmTelefon.textContent = inputTelefon.value;
+
+            confirmBox.style.display = "block";
+            confirmBox.scrollIntoView({ behavior: "smooth" });
+
         } else {
-            mesaj += "\nRidicare de la locație";
-            mesaj += "\nAdresă locație: 2 Rue De Drancy Cottage , 93700 Drancy";
+            mesajFinal += "\nRidicare de la locație";
+            mesajFinal += "\nAdresă locație: 2 Rue De Drancy Cottage , 93700 Drancy";
+
+            // Salvează global în Google Sheet și deschide WhatsApp
+            await postComanda(clientID, dataFinala, ora);
+            finalizeaza();
         }
-
-        mesaj += `\nComentariu: ${comentariu.trim() || "Niciun comentariu"}`;
-
-        const telefonWhatsApp = "+33681536514";
-        window.open(
-            "https://wa.me/" + telefonWhatsApp + "?text=" + encodeURIComponent(mesaj),
-            "_blank"
-        );
     });
+
+    /* ================= CONFIRMARE LIVRARE ================= */
+    editDataBtn.addEventListener("click", () => {
+        confirmBox.style.display = "none";
+        inputAdresa.focus();
+    });
+
+    confirmSendBtn.addEventListener("click", async () => {
+        mesajFinal += "\nAdresă: " + inputAdresa.value;
+        mesajFinal += "\nTelefon: " + inputTelefon.value;
+
+        // Salvează comanda în Google Sheet
+        await postComanda(clientIDInput.value, dataInput.value, oraSelect.value);
+        finalizeaza();
+    });
+
+    /* ================= POST COMANDA ================= */
+    async function postComanda(clientID, dataComanda, oraComanda) {
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                body: JSON.stringify({
+                    data: dataComanda,
+                    ora: oraComanda,
+                    clientID: clientID
+                })
+            });
+        } catch (err) {
+            console.error("Eroare la salvarea comenzii:", err);
+        }
+    }
+
+    /* ================= FINAL ================= */
+   async function finalizeaza() {
+    mesajFinal += "\nComentariu: " + (comentariu.value.trim() || "Niciun comentariu");
+
+    const telefon = "+33681536514";
+    window.open(
+        "https://wa.me/" + telefon + "?text=" + encodeURIComponent(mesajFinal),
+        "_blank"
+    );
+
+    // Re-generează orele disponibile
+    await genereazaOre();
+	}
 
 });

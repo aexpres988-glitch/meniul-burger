@@ -255,3 +255,12 @@ button#sendOrder:hover {
     border-radius: 6px;
     cursor: pointer;
 }
+
+.date-options input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
