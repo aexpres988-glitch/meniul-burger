@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Meniu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>MENIU</h1>
+
+<div class="menu">
+
+    <!-- TABURI -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="sushi">Sushi Burger</button>
+        <button class="tab-btn" data-tab="biscuiti">Biscuiți</button>
+        <button class="tab-btn" data-tab="placinte">Plăcinte</button>
+    </div>
+
+    <!-- SUSHI BURGER -->
+ <div class="tab-content active" id="sushi">
+	
+    <div class="section-layout">
+
+        <div class="section-products">
+		
+           <div class="item">
+		   
+            <input type="checkbox" class="product-check" data-name="Sushi Burger Somon" data-price="10">
+			
+				<div class="info">
+					<h3>Sushi Burger Somon</h3>
+					<p>Orez, Somon, Avocado, Philadelphia</p>
+					
+						<div class="price">10€</div>
+					<div class="qty-box" style="display:none;">
+						Cantitate:
+						<input type="number" class="qty-input" min="1" value="1">
+					</div>
+				</div>
+			</div>
+
+			<div class="item">
+				<input type="checkbox" class="product-check" data-name="Sushi Burger Creveti" data-price="10">
+					<div class="info">
+							<h3>Sushi Burger Creveți</h3>
+							<p>Orez, Creveți, Avocado, Philadelphia</p>
+						<div class="price">10€</div>
+							<div class="qty-box" style="display:none;">
+								Cantitate:
+								<input type="number" class="qty-input" min="1" value="1">
+							</div>
+					</div>
+			</div>
+			
+			<div class="item">
+				<input type="checkbox" class="product-check" data-name="Sushi Burger Creveti Panne" data-price="10">
+					<div class="info">
+							<h3>Sushi Burger Creveți Panne</h3>
+							<p>Orez, Creveți Panne, Avocado, Philadelphia</p>
+						<div class="price">10€</div>
+							<div class="qty-box" style="display:none;">
+								Cantitate:
+								<input type="number" class="qty-input" min="1" value="1">
+							</div>
+					</div>
+			</div>
+			
+			<div class="item">
+				<input type="checkbox" class="product-check" data-name="Sushi Burger Ton" data-price="10">
+					<div class="info">
+							<h3>Sushi Burger Ton</h3>
+							<p>Orez, Ton, Avocado, Philadelphia</p>
+						<div class="price">10€</div>
+							<div class="qty-box" style="display:none;">
+								Cantitate:
+								<input type="number" class="qty-input" min="1" value="1">
+							</div>
+					</div>
+			</div>
+			
+        </div>
+
+        <div class="section-image">
+            <img src="sushi.jpg" alt="Sushi Burger">
+        </div>
+
+    </div>
+</div>
+<!-- /SUSHI BURGER -->
+
+ <!-- BISCUITI -->
+    <div class="tab-content" id="biscuiti">
+
+	<div class="section-layout">
+
+        <div class="section-products">
+           <div class="item">
+				<input type="checkbox" class="product-check" data-name="Biscuiti cu Ciocolata" data-price="5">
+					<div class="info">
+							<h3>Biscuiți cu ciocolată</h3>
+							<p>Biscuiți artizanali</p>
+								<div class="price">5€</div>
+									<div class="qty-box" style="display:none;">
+									Cantitate:
+										<input type="number" class="qty-input" min="1" value="1">
+									</div>
+					</div>
+			</div>
+
+			<div class="item">
+			   <input type="checkbox" class="product-check" data-name="Biscuiti cu Vanilie" data-price="5">
+				<div class="info">
+					<h3>Biscuiți cu vanilie</h3>
+					<p>Biscuiți artizanali</p>
+					<div class="price">5€</div>
+					<div class="qty-box" style="display:none;">
+									Cantitate:
+									<input type="number" class="qty-input" min="1" value="1">
+								</div>
+				</div>
+			</div>
+			
+			<div class="item">
+			   <input type="checkbox" class="product-check" data-name="Vafe" data-price="5">
+				<div class="info">
+					<h3>Vafe</h3>
+					<p>Vafe cu crema fina de mascarpone si caramel</p>
+					<div class="price">5€</div>
+					<div class="qty-box" style="display:none;">
+									Cantitate:
+									<input type="number" class="qty-input" min="1" value="1">
+								</div>
+				</div>
+			</div>
+        </div>
+
+        <div class="section-image">
+            <img src="biscuiti.jpg" alt="Biscuiți">
+        </div>
+
+	</div>
+    </div>
+ <!-- BISCUITI -->
+ 
+ 
+    <!-- PLACINTE -->
+    <div class="tab-content" id="placinte">
+
+
+	<div class="section-layout">
+
+        <div class="section-products">
+            
+			<div class="item">
+            <input type="checkbox" class="product-check" data-name="Brinza" data-price="5">
+            <div class="info">
+                <h3>Plăcintă cu brinza</h3>
+                <p>info</p>
+                <div class="price">6€</div>
+				<div class="qty-box" style="display:none;">
+									Cantitate:
+									<input type="number" class="qty-input" min="1" value="1">
+								</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <input type="checkbox" class="product-check" data-name="Cartofi" data-price="5">
+            <div class="info">
+                <h3>Plăcintă cu Cartofi</h3>
+                <p>Brânză dulce</p>
+                <div class="price">6€</div>
+				<div class="qty-box" style="display:none;">
+									Cantitate:
+									<input type="number" class="qty-input" min="1" value="1">
+								</div>
+            </div>
+        </div>
+		
+		 <div class="item">
+            <input type="checkbox" class="product-check" data-name="Varza" data-price="5">
+            <div class="info">
+                <h3>Plăcintă cu Varza</h3>
+                <p>Brânză dulce</p>
+                <div class="price">6€</div>
+				<div class="qty-box" style="display:none;">
+									Cantitate:
+									<input type="number" class="qty-input" min="1" value="1">
+								</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="section-image">
+            <img src="placinte.jpeg" alt="Plăcinte">
+        </div>
+
+    </div>
+    </div>
+ <!-- PLACINTE -->
+	
+	
+
+    <!-- LIVRARE / RIDICARE -->
+    <div class="delivery-options">
+        <strong>Alege metoda:</strong><br><br>
+        <label>
+            <input type="radio" name="delivery" value="Livrare">
+            Livrare
+        </label>
+        <label>
+            <input type="radio" name="delivery" value="Ridicare">
+            Ridicare
+        </label>
+    </div>
+	
+	<div id="pickupInfo" style="display:none; margin-top:10px; font-size:14px; color:#333;">
+		📍 Adresa locației va fi inclusă automat în mesajul de comandă după trimitere.
+	</div>
+ <!-- LIVRARE / RIDICARE -->
+
+
+    <!-- DETALII LIVRARE -->
+    <div class="delivery-details" style="display:none; margin-top: 15px;">
+        <label><strong>Adresa de livrare:</strong></label><br>
+        <input type="text" id="adresa" placeholder="1 Rue Victor Hugo, 93600 Aulnay sous Bois " style="width:100%; padding:8px;"><br><br>
+
+        <label><strong>Telefon:</strong></label><br>
+        <input type="tel" id="telefon" placeholder="07xxxxxxxx" style="width:100%; padding:8px;">
+    </div>
+	 <!-- DETALII LIVRARE -->
+
+    <!-- ORA -->
+    <div class="time-options" id="timeOptions" style="display:none;">
+        <strong>Alege ora:</strong>
+        <select id="ora">
+            <option value="">-- Selectează ora --</option>
+        </select>
+    </div>
+ <!-- ORA -->
+ 
+ 
+    <!-- COMENTARIU -->
+    <div class="comment-section">
+        <label><strong>Comentariu:</strong></label><br>
+        <textarea id="comentariu" rows="3"></textarea>
+    </div>
+ <!-- COMENTARIU -->
+ 
+ 
+ 
+    <!-- BUTON -->
+    <button id="sendOrder">Trimite comanda</button>
+
+</div>
+
+<div id="confirmModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2>Confirmă datele de livrare</h2>
+        <label>Adresă:</label>
+        <input type="text" id="modalAdresa" style="width:100%; padding:8px;">
+        <label>Telefon:</label>
+        <input type="tel" id="modalTelefon" style="width:100%; padding:8px;">
+        <div style="margin-top:15px; text-align:right;">
+            <button id="modalCancel">Anulează</button>
+            <button id="modalConfirm">Confirmă</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
