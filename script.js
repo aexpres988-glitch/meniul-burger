@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= GOOGLE SHEET ================= */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAv3viMHXmY5IsxZoPs2239Hi8jwnb72E0dRV6hmK0bDe7MX2-BFoGWaQLoI6mveU/exec"; // pune URL-ul Apps Script aici
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbcNEFJo5cPmnqBQW0VxMZnXMvpTAQdPR9QwAUioHJrx7rhRnGV2n_UgVg191cQ2GJ/exec"; // pune URL-ul Apps Script aici
 
     async function fetchOcupate() {
         try {
@@ -215,25 +215,31 @@ document.addEventListener("DOMContentLoaded", () => {
         mesajFinal += "\nTelefon: " + inputTelefon.value;
 
         // Salvează comanda în Google Sheet
-        await postComanda(clientIDInput.value, dataInput.value, oraSelect.value);
+        postComanda(clientIDInput.value, dataInput.value, oraSelect.value);
+		
+		 // 2️⃣ Deschide WhatsApp imediat, direct după click
         finalizeaza();
     });
 
     /* ================= POST COMANDA ================= */
     async function postComanda(clientID, dataComanda, oraComanda) {
-        try {
-            await fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                body: JSON.stringify({
-                    data: dataComanda,
-                    ora: oraComanda,
-                    clientID: clientID
-                })
-            });
-        } catch (err) {
-            console.error("Eroare la salvarea comenzii:", err);
-        }
-    }
+  try {
+    const res = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: dataComanda,
+        ora: oraComanda,
+        clientID: clientID
+      })
+    });
+
+    return await res.json(); // ⬅️ IMPORTANT
+  } catch (err) {
+    console.error("Eroare la salvarea comenzii:", err);
+    return { status: "error", message: "Eroare rețea" };
+  }
+}
 
     /* ================= FINAL ================= */
    async function finalizeaza() {
@@ -250,7 +256,3 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 });
-
-
-
-
