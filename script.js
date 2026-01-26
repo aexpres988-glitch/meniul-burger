@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     /* ================= POST COMANDA ================= */
-    async function postComanda(clientID, dataComanda, oraComanda) {
+   async function postComanda(clientID, dataComanda, oraComanda) {
   try {
     const res = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
@@ -250,7 +250,16 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     });
 
-    return await res.json(); // ⬅️ IMPORTANT
+    // Verificăm dacă răspunsul e ok
+    if (!res.ok) {
+      console.error("Fetch failed", res.status, res.statusText);
+      return { status: "error", message: `Eroare rețea: ${res.status}` };
+    }
+
+    const json = await res.json();
+    console.log("Răspuns Apps Script:", json);
+    return json;
+
   } catch (err) {
     console.error("Eroare la salvarea comenzii:", err);
     return { status: "error", message: "Eroare rețea" };
