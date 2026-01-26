@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('fundal.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255,255,255,0.95);
+    color: #000;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* TABURI */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    background: #eee;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    background: #ddd;
+}
+
+.tab-btn.active {
+    background: #000;
+    color: #fff;
+}
+
+/* CONTINUT TAB */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* PRODUSE */
+.item {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item input {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.info h3 {
+    margin: 0;
+}
+
+.info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.price {
+    font-weight: bold;
+}
+
+/* LIVRARE */
+.delivery-options {
+    margin: 25px 0;
+}
+
+.delivery-options label {
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delivery-options input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+.delivery-details input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ORA */
+.time-options select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+/* COMENTARIU */
+.comment-section {
+    margin: 20px 0;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* BUTON */
+button#sendOrder {
+    width: 100%;
+    padding: 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button#sendOrder:hover {
+    background: #333;
+}
+.section-layout {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.section-products {
+    flex: 1;
+}
+
+/* .section-image img { */
+    /* width: 230px; */
+    /* max-width: 100%; */
+    /* border-radius: 12px; */
+    /* box-shadow: 0 5px 15px rgba(0,0,0,0.25); */
+/* } */
+/* .section-image { */
+    /* flex: 0 0 250px; */
+    /* display: flex; */
+    /* justify-content: center; */
+/* } */
+
+.section-image {
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: center;
+}
+.section-image img {
+    width: 100%;
+    max-width: 230px;
+    height: auto;
+}
+
+
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+    .section-layout {
+        flex-direction: column;
+    }
+
+    .section-image {
+        text-align: center;
+    }
+
+    .section-image img {
+        width: 180px;
+        margin-top: 15px;
+    }
+}
+
+.qty-box {
+    margin-top: 8px;
+}
+
+.qty-input {
+    width: 60px;
+    padding: 4px;
+    margin-left: 5px;
+}
+
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #000;
+}
+.modal-content input {
+    margin-bottom: 10px;
+}
+.modal-content button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
