@@ -256,33 +256,31 @@ confirmSendBtn.addEventListener("click", async () => {
 });
 
     /* ================= POST COMANDA ================= */
-  async function postComanda(clientID, dataComanda, oraComanda) {
+ async function postComanda(clientID, dataComanda, oraComanda) {
   try {
-    const res = await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      redirect: "follow",
-      credentials: "omit",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        data: dataComanda,
-        ora: oraComanda,
-        clientID: clientID
-      })
+    const payload = JSON.stringify({
+      data: dataComanda,
+      ora: oraComanda,
+      clientID: clientID
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
+    const res = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: payload
+    });
 
-    const json = await res.json();
+    const text = await res.text(); // NU res.json direct
+    const json = JSON.parse(text);
+
     console.log("Răspuns Apps Script:", json);
     return json;
 
   } catch (err) {
     console.error("Eroare la salvarea comenzii:", err);
-    return { status: "error", message: "Eroare rețea" };
+    return { status: "error", message: "Eroare rețea +" };
   }
 }
 
