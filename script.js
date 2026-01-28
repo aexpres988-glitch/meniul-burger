@@ -100,7 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const acum = new Date();
   const oraCurenta = acum.getHours();
-  const aziStr = acum.toISOString().split("T")[0];
+  
+  //const aziStr = acum.toISOString().split("T")[0];
+  
+  const yyyy = acum.getFullYear();
+const mm = String(acum.getMonth() + 1).padStart(2, "0");
+const dd = String(acum.getDate()).padStart(2, "0");
+const aziStr = `${yyyy}-${mm}-${dd}`;
 
   const oreOcupate = await fetchOcupate();
 
@@ -214,7 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
         inputAdresa.focus();
     });
 
-    confirmSendBtn.addEventListener("click", async () => {
+confirmSendBtn.addEventListener("click", async () => {
+  confirmSendBtn.disabled = true;
 
   mesajFinal += "\nAdresă: " + inputAdresa.value;
   mesajFinal += "\nTelefon: " + inputTelefon.value;
@@ -227,10 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (raspuns.status === "error") {
     alert(raspuns.message);
+    confirmSendBtn.disabled = false;
     return;
   }
 
-  // 🔄 reset select + reload ore
   oraSelect.value = "";
   await genereazaOre();
 
