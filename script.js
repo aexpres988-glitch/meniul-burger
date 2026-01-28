@@ -82,16 +82,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRW0t4_bpJQdh3Ojg4ZR1QKeDJ5GEZ6mK49OupAFkyWn6Bqm6H9-drSjQOF3oUoMAs/exec"; // pune URL-ul Apps Script aici
 
     async function fetchOcupate() {
-        try {
-            const res = await fetch(GOOGLE_SCRIPT_URL);
-            const data = await res.json();
-            const dataAleasa = dataInput.value;
-            return data.filter(o => o.data === dataAleasa).map(o => o.ora);
-        } catch (err) {
-            console.error("Nu am putut prelua orele ocupate", err);
-            return [];
-        }
+  try {
+    const res = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "GET",
+      redirect: "follow",
+      cache: "no-store",
+      credentials: "omit"
+    });
+
+    if (!res.ok) {
+      throw new Error(res.status);
     }
+
+    const data = await res.json();
+    const dataAleasa = dataInput.value;
+    return data.filter(o => o.data === dataAleasa).map(o => o.ora);
+
+  } catch (err) {
+    console.error("Nu am putut prelua orele ocupate", err);
+    return [];
+  }
+}
 
     /* ================= ORE ================= */
     async function genereazaOre() {
@@ -245,11 +256,15 @@ confirmSendBtn.addEventListener("click", async () => {
 });
 
     /* ================= POST COMANDA ================= */
-   async function postComanda(clientID, dataComanda, oraComanda) {
+  async function postComanda(clientID, dataComanda, oraComanda) {
   try {
     const res = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      redirect: "follow",
+      credentials: "omit",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         data: dataComanda,
         ora: oraComanda,
@@ -257,10 +272,8 @@ confirmSendBtn.addEventListener("click", async () => {
       })
     });
 
-    // Verificăm dacă răspunsul e ok
     if (!res.ok) {
-      console.error("Fetch failed", res.status, res.statusText);
-      return { status: "error", message: `Eroare rețea: ${res.status}` };
+      throw new Error(`HTTP ${res.status}`);
     }
 
     const json = await res.json();
@@ -288,5 +301,3 @@ confirmSendBtn.addEventListener("click", async () => {
 	}
 
 });
-
-
