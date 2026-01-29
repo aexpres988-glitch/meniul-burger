@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= GOOGLE SHEET ================= */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3poTfSUOdWyP5R9guAciElW-XVZjgCzL6gl3AuNpQg2wKmmQJ_w7XXGuTWRoyHgjF/exec"; // pune URL-ul Apps Script aici
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRW0t4_bpJQdh3Ojg4ZR1QKeDJ5GEZ6mK49OupAFkyWn6Bqm6H9-drSjQOF3oUoMAs/exec"; // pune URL-ul Apps Script aici
 
-    async function fetchOcupate() {
+   async function fetchOcupate() {
   try {
     const res = await fetch(GOOGLE_SCRIPT_URL, {
       method: "GET",
@@ -96,7 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const data = await res.json();
     const dataAleasa = dataInput.value;
-    return data.filter(o => o.data === dataAleasa).map(o => o.ora);
+
+    // normalizează orele ocupate la doar număr HH
+    return data
+      .filter(o => o.data === dataAleasa)
+      .map(o => Number(o.ora.split(":")[0]));
 
   } catch (err) {
     console.error("Nu am putut prelua orele ocupate", err);
@@ -127,7 +131,7 @@ const aziStr = `${yyyy}-${mm}-${dd}`;
     if (dataInput.value === aziStr && ora <= oraCurenta) continue;
 
     // ❌ nu afișăm ore ocupate
-    if (oreOcupate.includes(`${ora}:00`)) continue;
+   if (oreOcupate.includes(ora)) continue;
 
     const opt = document.createElement("option");
     opt.value = `${ora}:00`;
@@ -299,4 +303,3 @@ confirmSendBtn.addEventListener("click", async () => {
 	}
 
 });
-
