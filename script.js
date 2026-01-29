@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ================= GOOGLE SHEET ================= */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRW0t4_bpJQdh3Ojg4ZR1QKeDJ5GEZ6mK49OupAFkyWn6Bqm6H9-drSjQOF3oUoMAs/exec"; // pune URL-ul Apps Script aici
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3poTfSUOdWyP5R9guAciElW-XVZjgCzL6gl3AuNpQg2wKmmQJ_w7XXGuTWRoyHgjF/exec"; // pune URL-ul Apps Script aici
 
     async function fetchOcupate() {
   try {
@@ -299,3 +299,4 @@ confirmSendBtn.addEventListener("click", async () => {
 	}
 
 });
+
