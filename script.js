@@ -100,7 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // normalizează orele ocupate la doar număr HH
     return data
       .filter(o => o.data === dataAleasa)
-      .map(o => Number(o.ora.split(":")[0]));
+      .map(o => {
+        // extrage ora ca număr (HH)
+        return Number(o.ora.split(":")[0]);
+      });
 
   } catch (err) {
     console.error("Nu am putut prelua orele ocupate", err);
