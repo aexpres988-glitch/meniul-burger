@@ -203,18 +203,16 @@ button#sendOrder:hover {
     /* justify-content: center; */
 /* } */
 
-.section-image {
-    flex: 0 0 250px;
+.section-images {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-	 margin-top: 15px;
+    flex-direction: column; /* una sub alta */
+    gap: 15px; /* spațiu între poze */
+    align-items: center; /* centrare */
 }
 
 .section-image img {
     width: 100%;
-    max-width: 230px;
-    height: auto;
+    max-width: 300px; /* ajustează dacă vrei */
     border-radius: 10px;
 }
 
