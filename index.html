@@ -8,15 +8,23 @@
 </head>
 <body>
 
-<div class="meniu"><h1>MENIU</h1></div>
+<div class="lang-mobile">
+  <button class="lang-btn active" data-lang="ro">🇷🇴 Română</button>
+  <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+</div>
+
+<div class="meniu">
+	<h1 data-i18n="menu_title">MENIU</h1>
+</div>
 
 <div class="menu">
 
     <!-- TABURI -->
     <div class="tabs">
-        <button class="tab-btn active" data-tab="sushi">Sushi Burger</button>
-        <button class="tab-btn" data-tab="biscuiti">Biscuiți</button>
-        <button class="tab-btn" data-tab="placinte">Plăcinte</button>
+<button class="tab-btn active" data-tab="sushi" data-i18n="tab_sushi">Sushi Burger</button>
+<button class="tab-btn" data-tab="biscuiti" data-i18n="tab_biscuiti">Biscuiți</button>
+<button class="tab-btn" data-tab="placinte" data-i18n="tab_placinte">Plăcinte</button>
+
     </div>
 
 			
@@ -25,9 +33,10 @@
  <div class="tab-content active" id="sushi">
 	
 	<div class="inf">
-		<p>⚠️Comanda se plaseaza din timp⚠️</p>
-		<p>1 zi</p>
-		<p>Livrările se fac doar în weekend</p>
+		<p data-i18n="order_notice">⚠️Comanda se plasează din timp⚠️</p>
+		<p data-i18n="order_time_1">1 zi</p>
+		<p data-i18n="weekend_delivery">Livrările se fac doar în weekend</p>
+
 	</div>
 	
     <div class="section-layout">
@@ -39,8 +48,8 @@
             <!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Somon" data-price="10"> -->
 			
 				<div class="info">
-					<h3>Sushi Burger Somon + 🎁Coca-Cola🎁</h3>
-					<p>Orez, Somon, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
+					<h3 data-i18n="sushi_somon">Sushi Burger Somon + 🎁Coca-Cola🎁</h3>
+					<p data-i18n="sushi_somon_desc">Orez, Somon, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
 					
 						<div class="price">10€</div>
 					<!-- <div class="qty-box" style="display:none;"> -->
@@ -53,8 +62,8 @@
 			<div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Creveti" data-price="10"> -->
 					<div class="info">
-							<h3>Sushi Burger Creveți + 🎁Coca-Cola🎁</h3>
-							<p>Orez, Creveți, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
+							<h3 data-i18n="sushi_creveti">Sushi Burger Creveți + 🎁Coca-Cola🎁</h3>
+							<p data-i18n="sushi_creveti_desc" >Orez, Creveți, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
 						<div class="price">10€</div>
 							<!-- <div class="qty-box" style="display:none;"> -->
 								<!-- Cantitate: -->
@@ -66,8 +75,8 @@
 			<div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Creveti Panne" data-price="10"> -->
 					<div class="info">
-							<h3>Sushi Burger Creveți Panées + 🎁Coca-Cola🎁</h3>
-							<p>Orez, Creveți panées, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
+							<h3 data-i18n="sushi_pane">Sushi Burger Creveți Panées + 🎁Coca-Cola🎁</h3>
+							<p data-i18n="sushi_panee_desc">Orez, Creveți panées, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
 						<div class="price">10€</div>
 							<!-- <div class="qty-box" style="display:none;"> -->
 								<!-- Cantitate: -->
@@ -79,8 +88,8 @@
 			<div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Ton" data-price="10"> -->
 					<div class="info">
-							<h3>Sushi Burger Ton + 🎁Coca-Cola🎁</h3>
-							<p>Orez, Ton, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
+							<h3 data-i18n="sushi_ton">Sushi Burger Ton + 🎁Coca-Cola🎁</h3>
+							<p data-i18n="sushi_ton_desc">Orez, Ton, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
 						<div class="price">10€</div>
 							<!-- <div class="qty-box" style="display:none;"> -->
 								<!-- Cantitate: -->
@@ -92,8 +101,8 @@
 			<div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Ton" data-price="10"> -->
 					<div class="info">
-							<h3>Sushi Burger Mix + 🎁Coca-Cola🎁</h3>
-							<p>Orez, Somon, Creveți, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
+							<h3 data-i18n="sushi_mix">Sushi Burger Mix + 🎁Coca-Cola🎁</h3>
+							<p data-i18n="sushi_mix_desc">Orez, Somon, Creveți, Avocado, Philadelphia, Foi nori ,Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)</p>
 						<div class="price">10€</div>
 							<!-- <div class="qty-box" style="display:none;"> -->
 								<!-- Cantitate: -->
@@ -105,8 +114,8 @@
 			<div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Sushi Burger Ton" data-price="10"> -->
 					<div class="info">
-							<h3>Role Calde + 🎁Coca-Cola🎁</h3>
-							<p>Orez, Somon, Creveți, Avocado, Philadelphia, Foi nori ,Castraveți</p>
+							<h3 data-i18n="sushi_calzi">Role Calde + 🎁Coca-Cola🎁</h3>
+							<p data-i18n="sushi_calzi_desc">Orez, Somon, Creveți, Avocado, Philadelphia, Foi nori ,Castraveți</p>
 						<div class="price">10€</div>
 							<!-- <div class="qty-box" style="display:none;"> -->
 								<!-- Cantitate: -->
@@ -134,9 +143,9 @@
     <div class="tab-content" id="biscuiti">
 
 		<div class="inf">
-			<p>⚠️Comanda se plaseaza din timp⚠️</p>
-			<p>2 - 3 Zile</p>
-			<p>Livrările se fac doar în weekend</p>
+		<p data-i18n="order_notice">⚠️Comanda se plasează din timp⚠️</p>
+			<p data-i18n="order_time_2">2 - 3 Zile</p>
+			<p data-i18n="weekend_delivery">Livrările se fac doar în weekend</p>
 		</div>
 	
 	<div class="section-layout">
@@ -145,9 +154,9 @@
            <div class="item">
 				<!-- <input type="checkbox" class="product-check" data-name="Biscuiti cu Ciocolata" data-price="5"> -->
 					<div class="info">
-							<h3>Vafe cu cremă mascarpone și caramel</h3>
-							<p>Biscuiți artizanali</p>
-								<div class="price">10€ (20 Bucăți)</div>
+							<h3 data-i18n="vafe">Vafe cu cremă mascarpone și caramel</h3>
+							<p data-i18n="biscuiti_artizanali">Biscuiți artizanali</p>
+								<div class="price"> <p data-i18n="price_vafe">(20 Bucăți)</p> 10€ </div>
 									<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 										<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -158,12 +167,13 @@
 			<div class="item">
 			   <!-- <input type="checkbox" class="product-check" data-name="Biscuiti cu Vanilie" data-price="5"> -->
 				<div class="info">
-					<h3>Nucușoare 4 gusturi</h3>
-					<p>Căpșună</p>
-					<p>Ciocolată</p>
-					<p>Rafaello</p>
-					<p>Fistic</p>
-					<div class="price">10€ (4 Bucăți de fiecare gust)</div>
+					<h3 data-i18n="nucusoare_4">Nucușoare 4 gusturi</h3>
+					<p data-i18n="gust_capsuna">Căpșună</p>
+					<p data-i18n="gust_ciocolata">Ciocolată</p>
+					<p data-i18n="gust_rafaello">Rafaello</p>
+					<p data-i18n="gust_fistic">Fistic</p>
+					<p class="price" data-i18n="gust_info">4 Bucăți de fiecare gust
+					<div class="price">10€</div>
 					<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 									<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -174,8 +184,8 @@
 			<div class="item">
 			   <!-- <input type="checkbox" class="product-check" data-name="Vafe" data-price="5"> -->
 				<div class="info">
-					<h3>Nucușoare cu lapte condensat</h3>
-					<p>Gustul dulce al copilăriei</p>
+					<h3 data-i18n="nucusoare_lapte">Nucușoare cu lapte condensat</h3>
+					<p data-i18n="gust_copilarie">Gustul dulce al copilăriei</p>
 					<div class="price">20€ (1 Kilogram)</div>
 					<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
@@ -187,9 +197,9 @@
 			<div class="item">
 			   <!-- <input type="checkbox" class="product-check" data-name="Vafe" data-price="5"> -->
 				<div class="info">
-					<h3>Aperitiv cu somon icră roșie și Philadelphia</h3>
-					<p>Aperitiv</p>
-					<div class="price">10€ (16 Bucăți)</div>
+					<h3 data-i18n="aperitiv_somon">Aperitiv cu somon icră roșie și Philadelphia</h3>
+					<p data-i18n="aperitiv">Aperitiv</p>
+					<div class="price">10€ (16 Pcs)</div>
 					<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 									<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -209,9 +219,9 @@
     <div class="tab-content" id="placinte">
 
 		<div class="inf">
-			<p>⚠️Comanda se plaseaza din timp⚠️</p>
-			<p>2 - 3 Zile</p>
-			<p>Livrările se fac doar în weekend</p>
+			<p data-i18n="order_notice">⚠️Comanda se plasează din timp⚠️</p>
+			<p data-i18n="order_time_2">2 - 3 Zile</p>
+			<p data-i18n="weekend_delivery">Livrările se fac doar în weekend</p>
 		</div>
 
 	<div class="section-layout">
@@ -221,9 +231,9 @@
 			<div class="item">
             <!-- <input type="checkbox" class="product-check" data-name="Brinza" data-price="5"> -->
             <div class="info">
-                <h3>Plăcintă cu Brânză</h3>
-                 <p>( La alegerea clientului cu verdeață ceapă & mărar + 1€ )</p> 
-                <div class="price">5€ / Bucata</div>
+                <h3 data-i18n="placinta_branza">Plăcintă cu Brânză</h3>
+                 <p data-i18n="pl_brinza_info">( La alegerea clientului cu verdeață ceapă & mărar + 1€ )</p> 
+                <div class="price">5€ /<p data-i18n="pl_qty">Bucata</p></div>
 				<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 									<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -234,9 +244,9 @@
         <div class="item">
             <!-- <input type="checkbox" class="product-check" data-name="Cartofi" data-price="5"> -->
             <div class="info">
-                <h3>Plăcintă cu Cartofi</h3>
+                <h3 data-i18n="placinta_cartofi">Plăcintă cu Cartofi</h3>
                 <!-- <p>Brânză dulce</p> -->
-                <div class="price">4€ / Bucata</div>
+                <div class="price">4€ / <p data-i18n="pl_qty">Bucata</p></div>
 				<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 									<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -247,9 +257,9 @@
 		 <div class="item">
             <!-- <input type="checkbox" class="product-check" data-name="Varza" data-price="5"> -->
             <div class="info">
-                <h3>Plăcintă cu Varza</h3>
+                <h3 data-i18n="placinta_varza">Plăcintă cu Varza</h3>
                 <!-- <p>Brânză dulce</p> -->
-                <div class="price">4€ / Bucata</div>
+                <div class="price">4€ / <p data-i18n="pl_qty">Bucata</p></div>
 				<!-- <div class="qty-box" style="display:none;"> -->
 									<!-- Cantitate: -->
 									<!-- <input type="number" class="qty-input" min="1" value="1"> -->
@@ -265,7 +275,7 @@
     </div>
     </div>
 	<div id="pickupInfo" style="display:true; margin-top:10px; text-align:center; font-size:14px; color:#333;">
-		<h3>📍 Adresa pentru ridicare: <i>2 Rue de Drancy Cottage , 93700 Drancy</i><p> Livrarea pentru zona 93 : 5€ </p> <p> Livrarea pentru alte zone: 10€ </p><p><h2>Livrare de la 2 Cutii!!!</h2></p></h3>
+		<h3 data-i18n="pickup_title">📍 Adresa pentru ridicare: <i data-i18n="pickup_title">2 Rue de Drancy Cottage , 93700 Drancy</i><p data-i18n="delivery_93"> Livrarea pentru zona 93 : 5€ </p> <p data-i18n="delivery_other"> Livrarea pentru alte zone: 10€ </p><p><h2 data-i18n="delivery_min">Livrare de la 2 Cutii!!!</h2></p></h3>
 	</div>
     </div>
 
