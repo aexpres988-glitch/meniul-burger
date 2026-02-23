@@ -357,9 +357,12 @@ const translations = {
     sushi_mix: "Sushi Burger Mix + 🎁Coca-Cola🎁",
 	sushi_mix_desc: "Orez, Somon,Creveți, Avocado, Philadelphia, Foi nori, Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)",
 
-    sushi_calzi: "Role Calde + 🎁Coca-Cola🎁",
-    sushi_calzi_desc: "Orez, Somon,Creveți, Avocado, Philadelphia, Foi nori, Castraveți, Semințe de susan (Mix)",
-
+    sushi_calzi: "Role Calde (Somon sau Creveți) + 🎁Coca-Cola🎁",
+    sushi_calzi_desc: "Orez, Somon sau Creveți, Avocado, Philadelphia, Foi nori, Castraveți, Semințe de susan (Mix)",
+	
+	platou: "Platou Sushi Mediu",
+	platou_desc: "Rolă cu somon , Rolă cu Creveti , Rolă Philadelphia",
+	
     vafe: "Vafe cu cremă mascarpone și caramel",
 	price_vafe: "(20 Bucăți)",
 
@@ -378,10 +381,10 @@ const translations = {
     aperitiv_somon: "Aperitiv cu somon icră roșie și Philadelphia",
     aperitiv: "Aperitiv",
 
-    placinta_branza: "Plăcintă cu Brânză",
+    platou_mediu: "Plăcintă cu Brânză",
 	pl_brinza_info: "(La alegerea clientului cu verdeață ceapă & mărar + 1€ )",
-    placinta_cartofi: "Plăcintă cu Cartofi",
-    placinta_varza: "Plăcintă cu Varză",
+    platou_1: "Plăcintă cu Cartofi",
+    platou_2: "Plăcintă cu Varză",
 	pl_qty: "Bucata",
 
     pickup_title: "📍 Adresa pentru ridicare:  2 Rue de Drancy Cottage , 93700 Drancy",
@@ -419,6 +422,11 @@ const translations = {
     sushi_calzi: "Roulés chauds + 🎁Coca-Cola🎁",
 	sushi_calzi_desc: "Riz, Crevettes,Saumon, Avocat, Philadelphia, Feuilles de nori,Concombre",
 
+	platou: "Plateau de sushis moyen",
+	platou_desc: "Rouleau de saumon, rouleau de crevettes, rouleau de Philadelphie",
+	
+
+
     vafe: "Gaufres à la crème mascarpone et caramel",
     biscuiti_artizanali: "Biscuits artisanaux",
 	price_vafe: "(20 pièces)",
@@ -436,10 +444,10 @@ const translations = {
     aperitiv_somon: "Apéritif au saumon, œufs de poisson rouge et Philadelphia",
     aperitiv: "Apéritif",
 
-    placinta_branza: "Tourte au fromage",
+    platou_mediu: "Tourte au fromage",
 	pl_brinza_info: "Au choix du client, avec oignons verts et aneth + 1€",
-    placinta_cartofi: "Tourte aux pommes de terre",
-    placinta_varza: "Tourte au chou",
+    platou_1: "Tourte aux pommes de terre",
+    platou_2: "Tourte au chou",
 	pl_qty: "Pièces",
 	
     pickup_title: "📍 Adresse de retrait : 2 Rue de Drancy Cottage , 93700 Drancy",
