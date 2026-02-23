@@ -80,37 +80,37 @@ document.addEventListener("DOMContentLoaded", () =>
     // }
 
     /* ================= GOOGLE SHEET ================= */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRW0t4_bpJQdh3Ojg4ZR1QKeDJ5GEZ6mK49OupAFkyWn6Bqm6H9-drSjQOF3oUoMAs/exec"; // pune URL-ul Apps Script aici
+    // const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRW0t4_bpJQdh3Ojg4ZR1QKeDJ5GEZ6mK49OupAFkyWn6Bqm6H9-drSjQOF3oUoMAs/exec"; // pune URL-ul Apps Script aici
 
-   async function fetchOcupate() {
-  try {
-    const res = await fetch(GOOGLE_SCRIPT_URL, {
-      method: "GET",
-      redirect: "follow",
-      cache: "no-store",
-      credentials: "omit"
-    });
+   // async function fetchOcupate() {
+  // try {
+    // const res = await fetch(GOOGLE_SCRIPT_URL, {
+      // method: "GET",
+      // redirect: "follow",
+      // cache: "no-store",
+      // credentials: "omit"
+    // });
 
-    if (!res.ok) {
-      throw new Error(res.status);
-    }
+    // if (!res.ok) {
+      // throw new Error(res.status);
+    // }
 
-    const data = await res.json();
-    const dataAleasa = dataInput.value;
+    // const data = await res.json();
+    // const dataAleasa = dataInput.value;
 
-    // normalizează orele ocupate la doar număr HH
-    return data
-      .filter(o => o.data === dataAleasa)
-      .map(o => {
-        // extrage ora ca număr (HH)
-        return Number(o.ora.split(":")[0]);
-      });
+    // // normalizează orele ocupate la doar număr HH
+    // return data
+      // .filter(o => o.data === dataAleasa)
+      // .map(o => {
+        // // extrage ora ca număr (HH)
+        // return Number(o.ora.split(":")[0]);
+      // });
 
-  } catch (err) {
-    console.error("Nu am putut prelua orele ocupate", err);
-    return [];
-  }
-}
+  // } catch (err) {
+    // console.error("Nu am putut prelua orele ocupate", err);
+    // return [];
+  // }
+// }
 
     /* ================= ORE ================= */
     // async function genereazaOre() {
@@ -148,23 +148,23 @@ document.addEventListener("DOMContentLoaded", () =>
 
     // dataInput.addEventListener("change", genereazaOre);
 
-    /* ================= LIVRARE / RIDICARE ================= */
-    radios.forEach(radio => {
-        radio.addEventListener("change", () => {
-            timeOptions.style.display = "block";
-            dateOptions.style.display = "block";
+    // /* ================= LIVRARE / RIDICARE ================= */
+    // radios.forEach(radio => {
+        // radio.addEventListener("change", () => {
+            // timeOptions.style.display = "block";
+            // dateOptions.style.display = "block";
 
-            if (radio.value === "Livrare") {
-                deliveryDetails.style.display = "block";
-                pickupInfo.style.display = "none";
-            } else {
-                deliveryDetails.style.display = "none";
-                pickupInfo.style.display = "block";
-                inputAdresa.value = "";
-                inputTelefon.value = "";
-            }
-        });
-    });
+            // if (radio.value === "Livrare") {
+                // deliveryDetails.style.display = "block";
+                // pickupInfo.style.display = "none";
+            // } else {
+                // deliveryDetails.style.display = "none";
+                // pickupInfo.style.display = "block";
+                // inputAdresa.value = "";
+                // inputTelefon.value = "";
+            // }
+        // });
+    // });
 
     /* ================= TRIMITERE ================= */
     // sendBtn.addEventListener("click", async () => {
@@ -333,7 +333,7 @@ document.querySelector(`.lang-btn[data-lang="${savedLang}"]`)
 const translations = {
   ro: {
     menu_title: "MENIU",
-    tab_sushi: "Sushi Burger",
+    tab_sushi: "Sushi",
     tab_biscuiti: "Biscuiți",
     tab_placinte: "Plăcinte",
 
@@ -395,7 +395,7 @@ const translations = {
 
   fr: {
     menu_title: "MENU",
-    tab_sushi: "Sushi Burger",
+    tab_sushi: "Sushi",
     tab_biscuiti: "Biscuits",
     tab_placinte: "Tourtes",
 
