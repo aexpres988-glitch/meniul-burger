@@ -357,11 +357,11 @@ const translations = {
     sushi_mix: "Sushi Burger Mix + 🎁Coca-Cola🎁",
 	sushi_mix_desc: "Orez, Somon,Creveți, Avocado, Philadelphia, Foi nori, Icră roșie, Salată iceberg, Castraveți, Sos, Semințe de susan (Mix)",
 
-    sushi_calzi: "Role Calde (Somon sau Creveți) + 🎁Coca-Cola🎁",
+    sushi_calzi: "Role Calde 8 Bucăți (Somon sau Creveți) + 🎁Coca-Cola🎁",
     sushi_calzi_desc: "Orez, Somon sau Creveți, Avocado, Philadelphia, Foi nori, Castraveți, Semințe de susan (Mix)",
 	
-	platou: "Platou Sushi Mediu",
-	platou_desc: "Rolă cu somon , Rolă cu Creveti , Rolă Philadelphia",
+	platou: "Platou Sushi 24 Bucăți",
+	platou_desc: "Rolă cu somon – 8 Bucăți\nRolă cu Creveți – 8 Bucăți\nRolă Philadelphia – 8 Bucăți",
 	
     vafe: "Vafe cu cremă mascarpone și caramel",
 	price_vafe: "(20 Bucăți)",
@@ -419,11 +419,11 @@ const translations = {
     sushi_mix: "Sushi Burger Mix + 🎁Coca-Cola🎁",
 	sushi_mix_desc:  "Riz, Crevettes,Saumon, Avocat, Philadelphia, Feuilles de nori, Œufs de poisson rouge, Laitue iceberg, Concombre, Sauce, Graines de sésame (Mix)",
    
-    sushi_calzi: "Roulés chauds + 🎁Coca-Cola🎁",
+    sushi_calzi: "Roulés chauds 8 pièces + 🎁Coca-Cola🎁",
 	sushi_calzi_desc: "Riz, Crevettes,Saumon, Avocat, Philadelphia, Feuilles de nori,Concombre",
 
-	platou: "Plateau de sushis moyen",
-	platou_desc: "Rouleau de saumon, rouleau de crevettes, rouleau de Philadelphie",
+	platou: "Plateau de sushis 24 pièces",
+	platou_desc: "Rouleau de saumon – 8 pièces\nRouleau de crevettes – 8 pièces\nRouleau Philadelphia – 8 pièces",
 	
 
 

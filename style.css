@@ -112,6 +112,7 @@ h1 {
 .info p {
     margin: 5px 0;
     color: #555;
+	  white-space: pre-line;
 }
 
 .price {
@@ -354,3 +355,4 @@ button#sendOrder:hover {
 .badge.pulse {
   animation: pulse 1.4s infinite;
 }
+
