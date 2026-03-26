@@ -387,8 +387,8 @@ const translations = {
     platou_2: "Plăcintă cu Varză",
 	pl_qty: "Bucata",
 
-    pickup_title: "📍 Adresa pentru ridicare:  2 Rue de Drancy Cottage , 93700 Drancy",
-    delivery_93: "Livrarea pentru zona 93 : 5€",
+   // pickup_title: "📍 Adresa pentru ridicare:  2 Rue de Drancy Cottage , 93700 Drancy",
+    delivery_93: "Livrarea pentru zona 93 : 10€",
     delivery_other: "Livrarea pentru alte zone: 10€",
     delivery_min: "Livrare de la 2 Cutii!!!"
   },
@@ -450,8 +450,8 @@ const translations = {
     platou_2: "Tourte au chou",
 	pl_qty: "Pièces",
 	
-    pickup_title: "📍 Adresse de retrait : 2 Rue de Drancy Cottage , 93700 Drancy",
-    delivery_93: "Livraison zone 93 : 5€",
+   // pickup_title: "📍 Adresse de retrait : 2 Rue de Drancy Cottage , 93700 Drancy",
+    delivery_93: "Livraison zone 93 : 10€",
     delivery_other: "Livraison autres zones : 10€",
     delivery_min: "Livraison à partir de 2 boîtes !!!"
   }
